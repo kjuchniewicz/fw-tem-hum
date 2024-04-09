@@ -9,11 +9,11 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-aktywny-success.svg)]()
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/kjuchniewicz/zhu-iot-firmware)
-![GitHub Release](https://img.shields.io/github/v/release/kjuchniewicz/zhu-iot-firmware)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/kjuchniewicz/fw-tem-hum)
+![GitHub Release](https://img.shields.io/github/v/release/kjuchniewicz/fw-tem-hum)
 
-<!-- [![GitHub Issues](https://img.shields.io/github/issues/kjuchniewicz/zhu-iot-firmware.svg)](https://github.com/kjuchniewicz/zhu-iot-firmware/issues) -->
-<!-- [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kjuchniewicz/zhu-iot-firmware.svg)](https://github.com/kjuchniewicz/zhu-iot-firmware/pulls) -->
+<!-- [![GitHub Issues](https://img.shields.io/github/issues/kjuchniewicz/fw-tem-hum.svg)](https://github.com/kjuchniewicz/fw-tem-hum/issues) -->
+<!-- [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kjuchniewicz/fw-tem-hum.svg)](https://github.com/kjuchniewicz/fw-tem-hum/pulls) -->
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![MP](https://img.shields.io/badge/micropython-black?logo=micropython)]()
