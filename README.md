@@ -10,7 +10,8 @@
 
 [![Status](https://img.shields.io/badge/status-aktywny-success.svg)]()
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/kjuchniewicz/fw-tem-hum)
-![GitHub Release](https://img.shields.io/github/v/release/kjuchniewicz/fw-tem-hum)
+
+<!-- ![GitHub Release](https://img.shields.io/github/v/release/kjuchniewicz/fw-tem-hum) -->
 
 <!-- [![GitHub Issues](https://img.shields.io/github/issues/kjuchniewicz/fw-tem-hum.svg)](https://github.com/kjuchniewicz/fw-tem-hum/issues) -->
 <!-- [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kjuchniewicz/fw-tem-hum.svg)](https://github.com/kjuchniewicz/fw-tem-hum/pulls) -->
