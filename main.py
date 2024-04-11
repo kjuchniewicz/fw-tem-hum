@@ -12,6 +12,8 @@ settings = wifimgr.read_config()
 CLIENT_ID = hexlify(unique_id()).decode("utf-8")
 MQTT_PORT = 1883
 MQTT_TOPIC = settings["topic"]
+DELAY_SEND = settings["delay_send"]
+print(CLIENT_ID)
 
 # SDA pin 23 and SCL pin 19
 i2c = SoftI2C(scl=Pin(19,pull=Pin.PULL_UP), sda=Pin(23,pull=Pin.PULL_UP),freq=100000)
@@ -24,7 +26,7 @@ led.on()
 wlan = wifimgr.get_connection()
 if wlan is None:
     print('Nie udało się połączenie z siecią WiFi.')
-    wifimgr.restart()
+    wifimgr.restart("wlan in main")
     while True:
         pass  # you shall not pass :D
 
@@ -59,8 +61,7 @@ def main () -> None:
         led.on()
         wlan.disconnect()
         sleep(5)
-        wifimgr.restart()
-
+        wifimgr.restart("inner main exception")
 
 if __name__ == "__main__":
     while True:
@@ -71,7 +72,7 @@ if __name__ == "__main__":
             print("Błąd: " + str(e))
             wlan.disconnect()
             sleep(5)
-            wifimgr.restart()
+            wifimgr.restart("main")
 
 
 
