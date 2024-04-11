@@ -35,10 +35,12 @@ def get_connection():
         # Wyszukujemy WiFi w zasięgu
         wlan_sta.active(True)
         networks = wlan_sta.scan()
+        networks = sorted(networks, key=lambda x: x[3], reverse=True)
+        networks = [s for s in networks if s[0] == b'IoT']
 
         AUTHMODE = {0: "open", 1: "WEP", 2: "WPA-PSK", 3: "WPA2-PSK", 4: "WPA/WPA2-PSK"}
 
-        for ssid, b_ssid, channel, rssi, authmode, hidden in sorted(networks, key=lambda x: x[3], reverse=True):
+        for ssid, b_ssid, channel, rssi, authmode, hidden in networks:
             ssid = ssid.decode('utf-8')
             print("ssid: %s kanał: %d rssi: %d mode: %s" % (ssid, channel, rssi, AUTHMODE.get(authmode, '?')))
             if authmode > 0:
@@ -53,6 +55,7 @@ def get_connection():
                 print("-"*100)
                 # connected = do_connect(ssid, None)
             if connected:
+                print("Break from get_connection")
                 break
 
     except OSError as e:
@@ -61,13 +64,13 @@ def get_connection():
     # Rozpocznij serwer  dla Menedżera połączeń:
     if not connected:
         # Trzeba restartować połączenie
-        restart()
+        restart("get_connection")
 
     return wlan_sta if connected else None
 
 
-def restart():
-    print("Resetowanie...")
+def restart(where):
+    print("Resetowanie... " + where)
     time.sleep(1)
     machine.reset()
 
