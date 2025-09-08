@@ -167,3 +167,4 @@ cython_debug/
 
 wifi.dat
 secrets.json
+bin/*

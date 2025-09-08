@@ -1,7 +1,41 @@
 {
-  "python.languageServer": "Pylance",
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBorder": "#30355e",
+    "editorInlayHint.background": "#6e2a5c67",
+    "editorInlayHint.foreground": "#ff51b1",
+    "editorInlayHint.parameterBackground": "#2a566448",
+    "editorInlayHint.parameterForeground": "#07bcd4",
+    "editorInlayHint.typeBackground": "#5a642a62",
+    "editorInlayHint.typeForeground": "#cfec27",
+    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.debuggingForeground": "#434C5E",
+    "statusBar.noFolderBackground": "#8FBCBB",
+    "terminal.background": "#151515",
+    "terminal.foreground": "#D0D0D0",
+    "terminalCursor.background": "#D0D0D0",
+    "terminalCursor.foreground": "#D0D0D0",
+    "terminal.ansiBlack": "#151515",
+    "terminal.ansiBlue": "#6A9FB5",
+    "terminal.ansiBrightBlack": "#505050",
+    "terminal.ansiBrightBlue": "#6A9FB5",
+    "terminal.ansiBrightCyan": "#75B5AA",
+    "terminal.ansiBrightGreen": "#90A959",
+    "terminal.ansiBrightMagenta": "#AA759F",
+    "terminal.ansiBrightRed": "#AC4142",
+    "terminal.ansiBrightWhite": "#F5F5F5",
+    "terminal.ansiBrightYellow": "#F4BF75",
+    "terminal.ansiCyan": "#75B5AA",
+    "terminal.ansiGreen": "#90A959",
+    "terminal.ansiMagenta": "#AA759F",
+    "terminal.ansiRed": "#AC4142",
+    "terminal.ansiWhite": "#D0D0D0",
+    "terminal.ansiYellow": "#F4BF75"
+  },
+  "python.languageServer": "None",
+  "python.analysis.typeCheckingMode": "basic",
   "python.analysis.diagnosticSeverityOverrides": {
     "reportShadowedImports": "none",
     "reportMissingModuleSource": "none"
-  }
+  },
+  "python.analysis.typeshedPaths": [".venv/Lib/site-packages"]
 }

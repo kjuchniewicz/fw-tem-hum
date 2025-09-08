@@ -1,11 +1,10 @@
+import ahtx0
 import ujson as json
 from machine import Pin, SoftI2C, unique_id
 from ubinascii import hexlify
 from umqtt.simple import MQTTClient
-from utime import sleep
-
-import ahtx0
 from utils import wifimgr
+from utime import sleep
 
 settings = wifimgr.read_config()
 
@@ -16,7 +15,7 @@ DELAY_SEND = settings["delay_send"]
 print(CLIENT_ID)
 
 # SDA pin 23 and SCL pin 19
-i2c = SoftI2C(scl=Pin(19,pull=Pin.PULL_UP), sda=Pin(23,pull=Pin.PULL_UP),freq=100000)
+i2c = SoftI2C(scl=Pin(19, pull=Pin.PULL_UP), sda=Pin(23, pull=Pin.PULL_UP), freq=100000)
 sensor = ahtx0.AHT10(i2c)
 
 led = Pin(22, Pin.OUT)
@@ -25,15 +24,17 @@ led.on()
 
 wlan = wifimgr.get_connection()
 if wlan is None:
-    print('Nie udało się połączenie z siecią WiFi.')
+    print("Nie udało się połączenie z siecią WiFi.")
     wifimgr.restart("wlan in main")
     while True:
         pass  # you shall not pass :D
 
 
+print("Połączenie z siecią WiFi.", settings["location1"], ":", settings["location2"])
 led.off()
 
-def main () -> None:
+
+def main() -> None:
     try:
         if wlan.isconnected():
             temp = sensor.temperature
@@ -41,7 +42,7 @@ def main () -> None:
             dew = sensor.dew_point()
             print("\nTemperatura: %0.2f C" % temp)
             print("Wilgotność: %0.2f %%" % hum)
-            print("Punkt rosy: %0.2f %%" % dew)
+            print("Punkt rosy: %0.2f C" % dew)
 
             msg = json.dumps(
                 {
@@ -53,9 +54,16 @@ def main () -> None:
                     "location1": settings["location1"],
                     "location2": settings["location2"],
                 }
-                )
+            )
 
-            client = MQTTClient(CLIENT_ID, settings["broker"], MQTT_PORT, settings["broker_user"], settings["broker_pass"], 60)
+            client = MQTTClient(
+                CLIENT_ID,
+                settings["broker"],
+                MQTT_PORT,
+                settings["broker_user"],
+                settings["broker_pass"],
+                60,
+            )
             sleep(2)
             print("Klient utworzony")
             client.connect()
@@ -78,6 +86,7 @@ def main () -> None:
         sleep(5)
         wifimgr.restart("inner main exception")
 
+
 if __name__ == "__main__":
     while True:
         try:
@@ -86,9 +95,8 @@ if __name__ == "__main__":
             led.on()
             print("Błąd: " + str(e))
             wlan.disconnect()
-            sleep(5)
+            sleep(1)
             wifimgr.restart("main")
-
 
 
 # {
