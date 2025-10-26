@@ -31,11 +31,9 @@
     "terminal.ansiWhite": "#D0D0D0",
     "terminal.ansiYellow": "#F4BF75"
   },
-  "python.languageServer": "None",
-  "python.analysis.typeCheckingMode": "basic",
-  "python.analysis.diagnosticSeverityOverrides": {
-    "reportShadowedImports": "none",
+  "windsurfPyright.analysis.diagnosticSeverityOverrides": {
     "reportMissingModuleSource": "none"
   },
-  "python.analysis.typeshedPaths": [".venv/Lib/site-packages"]
+  "windsurfPyright.analysis.typeshedPaths": ["typings"],
+  "python.languageServer": "None"
 }
